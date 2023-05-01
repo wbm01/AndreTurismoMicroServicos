@@ -1,6 +1,9 @@
-using Services;
-
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AndreTurismoMicroServico.HotelService.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AndreTurismoMicroServicoHotelServiceContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndreTurismoMicroServicoHotelServiceContext") ?? throw new InvalidOperationException("Connection string 'AndreTurismoMicroServicoHotelServiceContext' not found.")));
 
 // Add services to the container.
 
@@ -8,11 +11,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddSingleton<AddressService>();
-builder.Services.AddSingleton<CityService>();
-builder.Services.AddSingleton<PostOfficeService>();
-builder.Services.AddSingleton<HotelService>();
 
 var app = builder.Build();
 

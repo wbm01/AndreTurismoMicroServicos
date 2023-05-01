@@ -46,11 +46,11 @@ namespace AndreTurismoMicroServico.Controllers
             return await _addressService.DeleteAddress(id);
         }
 
-        /*[HttpPut("{id}", Name = "UpdateAddress")]
-        public async Task<Address> UpdateAddress(string id, Address address)
+        [HttpPut("{id}", Name = "UpdateAddress")]
+        public async Task<Address> UpdateAddress(Address address)
         {
-            return await _addressService.UpdateAddress(id, address);
-        }*/
+            return await _addressService.UpdateAddress(address);
+        }
     }
 }
 

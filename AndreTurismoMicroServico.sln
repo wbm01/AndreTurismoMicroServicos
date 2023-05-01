@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico", "AndreTurismoMicroServico\AndreTurismoMicroServico.csproj", "{69BDEFFC-FC82-4B2C-BEFD-69437E1EAE0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico", "AndreTurismoMicroServico\AndreTurismoMicroServico.csproj", "{69BDEFFC-FC82-4B2C-BEFD-69437E1EAE0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{E51AD915-5AE7-4778-98B6-CDE3035046BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{E51AD915-5AE7-4778-98B6-CDE3035046BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.AddressService", "AndreTurismoMicroServico.AddressService\AndreTurismoMicroServico.AddressService.csproj", "{FCC90538-0B2C-4940-B675-78581924ED62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.AddressService", "AndreTurismoMicroServico.AddressService\AndreTurismoMicroServico.AddressService.csproj", "{FCC90538-0B2C-4940-B675-78581924ED62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{65D69A85-BE9E-4AC8-8F19-1932EF7D5EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{65D69A85-BE9E-4AC8-8F19-1932EF7D5EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.CityService", "AndreTurismoMicroServico.CityService\AndreTurismoMicroServico.CityService.csproj", "{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.CityService", "AndreTurismoMicroServico.CityService\AndreTurismoMicroServico.CityService.csproj", "{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.HotelService", "AndreTurismoMicroServico.HotelService\AndreTurismoMicroServico.HotelService.csproj", "{C6A72219-1030-4D86-B810-D7A929DCC6C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
