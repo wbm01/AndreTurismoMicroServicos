@@ -72,5 +72,20 @@ namespace Services
                 throw;
             }
         }
+
+        public async Task<Hotel> UpdateHotel(Hotel hotel)
+        {
+            try
+            {
+                HttpResponseMessage resposta = await hotelClient.PutAsJsonAsync("https://localhost:7063/api/Hotels/", hotel);
+                resposta.EnsureSuccessStatusCode();
+                string hotelResposta = await resposta.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Hotel>(hotelResposta);
+            }
+            catch (HttpRequestException e)
+            {
+                throw;
+            }
+        }
     }
 }

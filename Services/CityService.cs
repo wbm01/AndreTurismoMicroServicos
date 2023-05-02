@@ -71,5 +71,13 @@ namespace Services
                 throw;
             }
         }
+
+        public async Task<City>UpdateCity(City city)
+        {
+            HttpResponseMessage resposta = await cityClient.PutAsJsonAsync("https://localhost:7229/api/Cities", city);
+            resposta.EnsureSuccessStatusCode();
+            string cityResposta = await resposta.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<City>(cityResposta);
+        }
     }
 }

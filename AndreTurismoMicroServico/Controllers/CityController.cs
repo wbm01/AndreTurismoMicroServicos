@@ -39,5 +39,11 @@ namespace AndreTurismoMicroServico.Controllers
         {
             return await _cityService.DeleteCity(id);
         }
+
+        [HttpPut("{id}", Name = "UpdateCity")]
+        public async Task<City> UpdateCity(City city)
+        {
+            return await _cityService.UpdateCity(city);
+        }
     }
 }

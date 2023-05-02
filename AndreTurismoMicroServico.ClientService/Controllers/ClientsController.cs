@@ -29,6 +29,11 @@ namespace AndreTurismoMicroServico.ClientService.Controllers
           {
               return NotFound();
           }
+
+            await _context.Client.Include(a => a.AddressClient).ToListAsync();
+
+            await _context.Client.Include(a => a.AddressClient.Id_City_Address).ToListAsync();
+
             return await _context.Client.ToListAsync();
         }
 
