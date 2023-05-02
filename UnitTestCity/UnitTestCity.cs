@@ -26,6 +26,7 @@ namespace UnitTestCity
             }
         }
 
+        [Fact]
         public void GetCity()
         {
             InitializeDataBase();
@@ -40,6 +41,7 @@ namespace UnitTestCity
             }
         }
 
+        [Fact]
         public void GetCityById()
         {
             InitializeDataBase();
@@ -56,6 +58,7 @@ namespace UnitTestCity
             }
         }
 
+        [Fact]
         public void PostCity()
         {
             InitializeDataBase();
@@ -76,6 +79,7 @@ namespace UnitTestCity
             }
         }
 
+        [Fact]
         public void DeleteCity()
         {
             InitializeDataBase();
@@ -92,6 +96,7 @@ namespace UnitTestCity
             }
         }
 
+        [Fact]
         public void UpdateCity()
         {
             InitializeDataBase();

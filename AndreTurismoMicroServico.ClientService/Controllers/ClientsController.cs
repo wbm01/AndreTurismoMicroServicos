@@ -63,7 +63,7 @@ namespace AndreTurismoMicroServico.ClientService.Controllers
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClient(int id, Client client)
+        public async Task<ActionResult<Client>> PutClient(int id, Client client)
         {
             if (id != client.Id)
             {
@@ -110,7 +110,7 @@ namespace AndreTurismoMicroServico.ClientService.Controllers
 
         // DELETE: api/Clients/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClient(int id)
+        public async Task<ActionResult<Client>> DeleteClient(int id)
         {
             if (_context.Client == null)
             {

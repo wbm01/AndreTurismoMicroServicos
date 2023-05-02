@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.Ti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.PackageService", "AndreTurismoMicroServico.PackageService\AndreTurismoMicroServico.PackageService.csproj", "{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniteTestAddress", "UniteTestAddress\UniteTestAddress.csproj", "{84D6BAF2-2E87-4990-A403-C1974989DE82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAddress", "UniteTestAddress\UnitTestAddress.csproj", "{84D6BAF2-2E87-4990-A403-C1974989DE82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCity", "UnitTestCity\UnitTestCity.csproj", "{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestClient", "UnitTestClient\UnitTestClient.csproj", "{F94F11C2-38E2-446F-86EE-CFA54C43A16A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94F11C2-38E2-446F-86EE-CFA54C43A16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94F11C2-38E2-446F-86EE-CFA54C43A16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94F11C2-38E2-446F-86EE-CFA54C43A16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94F11C2-38E2-446F-86EE-CFA54C43A16A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

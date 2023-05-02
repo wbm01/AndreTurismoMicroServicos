@@ -5,7 +5,7 @@ using Models;
 using Services;
 using Xunit;
 
-namespace UniteTestAddress
+namespace UnitTestAddress
 {
     public class UnitTestAddress
     {
