@@ -45,6 +45,10 @@ namespace AndreTurismoMicroServico.HotelService.Controllers
           {
               return NotFound();
           }
+            await _context.Hotel.Include(a => a.Id_Address_Hotel).ToListAsync();
+
+            await _context.Hotel.Include(a => a.Id_Address_Hotel.Id_City_Address).ToListAsync();
+
             var hotel = await _context.Hotel.FindAsync(id);
 
             if (hotel == null)

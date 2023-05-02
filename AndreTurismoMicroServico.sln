@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.ClientService", "AndreTurismoMicroServico.ClientService\AndreTurismoMicroServico.ClientService.csproj", "{4D7E9251-BD08-4D73-906C-529827A0AEF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.TicketService", "AndreTurismoMicroServico.TicketService\AndreTurismoMicroServico.TicketService.csproj", "{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

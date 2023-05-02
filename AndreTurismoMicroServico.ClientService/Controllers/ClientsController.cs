@@ -45,6 +45,11 @@ namespace AndreTurismoMicroServico.ClientService.Controllers
           {
               return NotFound();
           }
+
+            await _context.Client.Include(a => a.AddressClient).ToListAsync();
+
+            await _context.Client.Include(a => a.AddressClient.Id_City_Address).ToListAsync();
+
             var client = await _context.Client.FindAsync(id);
 
             if (client == null)
@@ -95,6 +100,8 @@ namespace AndreTurismoMicroServico.ClientService.Controllers
           {
               return Problem("Entity set 'AndreTurismoMicroServicoClientServiceContext.Client'  is null.");
           }
+
+            
             _context.Client.Add(client);
             await _context.SaveChangesAsync();
 
