@@ -9,6 +9,7 @@ using AndreTurismoMicroServico.AddressService.Data;
 using Models;
 using Services;
 using Models.DTO;
+using System.Net;
 
 namespace AndreTurismoMicroServico.AddressService.Controllers
 {
@@ -71,6 +72,7 @@ namespace AndreTurismoMicroServico.AddressService.Controllers
             {
                 return BadRequest();
             }
+            address = GetPostOffice(address);
 
             _context.Entry(address).State = EntityState.Modified;
 
@@ -102,10 +104,21 @@ namespace AndreTurismoMicroServico.AddressService.Controllers
             }
 
 
+                var ad = GetPostOffice(address);
+
+
+            _context.Address.Add(ad);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetAddress", new { id = address.Id_Address }, ad);
+        }
+        private Address GetPostOffice(Address address)
+        {
             AddressDTO data = _address.GetAddress(address.Cep).Result; // comando Result devolve um retorno do mesmo tipo do parametro Task, no caso AddresDTO
             Address ad = new Address();
             City city = new();
 
+            ad.Id_Address = address.Id_Address;
             ad.Street = data.Logradouro;
             city.Description = data.City;
             city.DtRegister_City = DateTime.Now;
@@ -114,12 +127,9 @@ namespace AndreTurismoMicroServico.AddressService.Controllers
             ad.Neighborhood = data.Bairro;
             ad.Complement = data.Complemento;
             ad.Cep = data.CEP;
+            ad.DtRegister_Address = DateTime.Now;
 
-
-            _context.Address.Add(ad);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetAddress", new { id = address.Id_Address }, ad);
+            return ad;
         }
 
         // DELETE: api/Addresses/5

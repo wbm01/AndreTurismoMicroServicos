@@ -28,6 +28,21 @@ namespace Services
             }
         }
 
+        public async Task<Hotel> GetHotelById(string id)
+        {
+            try
+            {
+                HttpResponseMessage response = await HotelService.hotelClient.GetAsync("https://localhost:7063/api/Hotels/" + id);
+                response.EnsureSuccessStatusCode();
+                string hotel = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Hotel>(hotel);
+            }
+            catch (HttpRequestException e)
+            {
+                throw;
+            }
+        }
+
         public async Task<Hotel> PostHotel(Hotel hotel)
         {
             try

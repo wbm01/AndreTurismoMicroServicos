@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AndreTurismoMicroServico.HotelService.Migrations
 {
     [DbContext(typeof(AndreTurismoMicroServicoHotelServiceContext))]
-    [Migration("20230501220040_V3")]
+    [Migration("20230502161622_V3")]
     partial class V3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

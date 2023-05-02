@@ -33,6 +33,12 @@ namespace AndreTurismoMicroServico.Controllers
             return await _addressService.GetAddress();
         }
 
+        [HttpGet("{id}", Name = "GetAddressesById")]
+        public async Task<Address> GetAddressById(string id)
+        {
+            return await _addressService.GetAddressById(id);
+        }
+
 
         [HttpPost(Name = "PostAddresses")]
         public async Task<Address> PostAddress(Address address)
@@ -49,7 +55,10 @@ namespace AndreTurismoMicroServico.Controllers
         [HttpPut("{id}", Name = "UpdateAddress")]
         public async Task<Address> UpdateAddress(Address address)
         {
-            return await _addressService.UpdateAddress(address);
+            var a = await _addressService.UpdateAddress(address);
+
+            return a;
+            
         }
     }
 }

@@ -28,6 +28,21 @@ namespace Services
             }
         }
 
+        public async Task<City> GetCityById(string id)
+        {
+            try
+            {
+                HttpResponseMessage response = await CityService.cityClient.GetAsync("https://localhost:7229/api/Cities/" + id);
+                response.EnsureSuccessStatusCode();
+                string city = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<City>(city);
+            }
+            catch (HttpRequestException e)
+            {
+                throw;
+            }
+        }
+
         public async Task<City> PostCity(City city)
         {
             try

@@ -22,6 +22,12 @@ namespace AndreTurismoMicroServico.Controllers
             return await _cityService.GetCities();
         }
 
+        [HttpGet("{id}", Name = "GetCitiesById")]
+        public async Task<City> GetCityById(string id)
+        {
+            return await _cityService.GetCityById(id);
+        }
+
         [HttpPost(Name = "PostCity")]
         public async Task<City> PostCity(City city)
         {

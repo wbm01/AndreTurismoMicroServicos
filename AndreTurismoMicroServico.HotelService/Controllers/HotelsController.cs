@@ -25,10 +25,15 @@ namespace AndreTurismoMicroServico.HotelService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Hotel>>> GetHotel()
         {
+            List<Hotel>hotels = new List<Hotel>();
           if (_context.Hotel == null)
           {
               return NotFound();
           }
+            await _context.Hotel.Include(a => a.Id_Address_Hotel).ToListAsync();
+
+            await _context.Hotel.Include(a => a.Id_Address_Hotel.Id_City_Address).ToListAsync();
+
             return await _context.Hotel.ToListAsync();
         }
 

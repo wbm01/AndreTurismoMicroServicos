@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.CityService", "AndreTurismoMicroServico.CityService\AndreTurismoMicroServico.CityService.csproj", "{15A54FE6-9FEF-4E19-AF18-B9302BE02C23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.HotelService", "AndreTurismoMicroServico.HotelService\AndreTurismoMicroServico.HotelService.csproj", "{C6A72219-1030-4D86-B810-D7A929DCC6C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.HotelService", "AndreTurismoMicroServico.HotelService\AndreTurismoMicroServico.HotelService.csproj", "{C6A72219-1030-4D86-B810-D7A929DCC6C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.ClientService", "AndreTurismoMicroServico.ClientService\AndreTurismoMicroServico.ClientService.csproj", "{4D7E9251-BD08-4D73-906C-529827A0AEF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6A72219-1030-4D86-B810-D7A929DCC6C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7E9251-BD08-4D73-906C-529827A0AEF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

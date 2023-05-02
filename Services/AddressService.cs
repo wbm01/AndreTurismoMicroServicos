@@ -29,6 +29,21 @@ namespace Services
             }
         }
 
+        public async Task<Address> GetAddressById(string id)
+        {
+            try
+            {
+                HttpResponseMessage response = await AddressService.addressClient.GetAsync("https://localhost:7211/api/Addresses/" + id);
+                response.EnsureSuccessStatusCode();
+                string address = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Address>(address);
+            }
+            catch (HttpRequestException e)
+            {
+                throw;
+            }
+        }
+
         public async Task<Address>PostAddresses(Address address)
         {
             try
@@ -63,7 +78,7 @@ namespace Services
         {
             try
             {
-                HttpResponseMessage resposta = await addressClient.PutAsJsonAsync("https://localhost:7211/api/Addresses/" + address.Id_Address + address);
+                HttpResponseMessage resposta = await addressClient.PutAsJsonAsync("https://localhost:7211/api/Addresses", address);
                 resposta.EnsureSuccessStatusCode();
                 string addressResposta = await resposta.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Address>(addressResposta);
