@@ -53,7 +53,7 @@ namespace AndreTurismoMicroServico.CityService.Controllers
         // PUT: api/Cities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCity(int id, City city)
+        public async Task<ActionResult<City>> PutCity(int id, City city)
         {
             if (id != city.Id_City)
             {
@@ -98,7 +98,7 @@ namespace AndreTurismoMicroServico.CityService.Controllers
 
         // DELETE: api/Cities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCity(int id)
+        public async Task<ActionResult<City>> DeleteCity(int id)
         {
             if (_context.City == null)
             {

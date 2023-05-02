@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AndreTurismoMicroServico.AddressService.Migrations
 {
-    public partial class Initialcreate : Migration
+    public partial class V7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

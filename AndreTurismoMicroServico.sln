@@ -15,11 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.Ci
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.HotelService", "AndreTurismoMicroServico.HotelService\AndreTurismoMicroServico.HotelService.csproj", "{C6A72219-1030-4D86-B810-D7A929DCC6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.ClientService", "AndreTurismoMicroServico.ClientService\AndreTurismoMicroServico.ClientService.csproj", "{4D7E9251-BD08-4D73-906C-529827A0AEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.ClientService", "AndreTurismoMicroServico.ClientService\AndreTurismoMicroServico.ClientService.csproj", "{4D7E9251-BD08-4D73-906C-529827A0AEF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.TicketService", "AndreTurismoMicroServico.TicketService\AndreTurismoMicroServico.TicketService.csproj", "{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.TicketService", "AndreTurismoMicroServico.TicketService\AndreTurismoMicroServico.TicketService.csproj", "{D3A7556C-7CF8-4C98-BA84-085CBC4E3B32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoMicroServico.PackageService", "AndreTurismoMicroServico.PackageService\AndreTurismoMicroServico.PackageService.csproj", "{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoMicroServico.PackageService", "AndreTurismoMicroServico.PackageService\AndreTurismoMicroServico.PackageService.csproj", "{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniteTestAddress", "UniteTestAddress\UniteTestAddress.csproj", "{84D6BAF2-2E87-4990-A403-C1974989DE82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCity", "UnitTestCity\UnitTestCity.csproj", "{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,14 @@ Global
 		{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD1ACA03-FD6F-48F4-9BDE-23B304512FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D6BAF2-2E87-4990-A403-C1974989DE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D6BAF2-2E87-4990-A403-C1974989DE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D6BAF2-2E87-4990-A403-C1974989DE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D6BAF2-2E87-4990-A403-C1974989DE82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5429E8A-D30D-42BC-B5AC-D30C13498FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
