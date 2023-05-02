@@ -47,12 +47,12 @@ namespace AndreTurismoMicroServico.Controllers
             var destiny = _addressService.GetAddressById(tDestiny);
             var client = _clientService.GetClientById(tClient);
 
-            ticket.Origin = origin;
-            ticket.Destiny = destiny;
-            ticket.ClientTicket = client;
+            ticket.Origin = origin.Result;
+            ticket.Destiny = destiny.Result;
+            ticket.ClientTicket = client.Result;
 
 
-            return await _ticketService.PostHotel(ticket);
+            return await _ticketService.PostTicket(ticket);
         }
 
         [HttpDelete("{id}", Name = "DeleteTicket")]
@@ -64,7 +64,7 @@ namespace AndreTurismoMicroServico.Controllers
         [HttpPut("{id}", Name = "UpdateTicket")]
         public async Task<Ticket> UpdateTicket(Ticket ticket)
         {
-            return await _ticketService.UpdateHotel(ticket);
+            return await _ticketService.UpdateTicket(ticket);
         }
     }
 }
