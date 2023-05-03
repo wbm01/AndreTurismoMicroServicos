@@ -30,7 +30,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpGet("{id}", Name = "GetTicketById")]
-        public async Task<Ticket> GetTicketById(string id)
+        public async Task<Ticket> GetTicketById(int id)
         {
             return await _ticketService.GetTicketById(id);
         }
@@ -39,24 +39,22 @@ namespace AndreTurismoMicroServico.Controllers
         [HttpPost(Name = "PostTicket")]
         public async Task<Ticket> PostTicket(Ticket ticket)
         {
-            var tOrigin = ticket.Origin.Id_Address.ToString();
-            var tDestiny = ticket.Destiny.Id_City_Address.Id_City.ToString();
-            var tClient = ticket.ClientTicket.Id.ToString();
 
-            var origin = _addressService.GetAddressById(tOrigin);
-            var destiny = _addressService.GetAddressById(tDestiny);
-            var client = _clientService.GetClientById(tClient);
+            Address origin = await _addressService.GetAddressById(ticket.Origin.Id_Address);
+            Address destiny = await _addressService.GetAddressById(ticket.Destiny.Id_Address);
+            Client client = await _clientService.GetClientById(ticket.ClientTicket.Id);
 
-            ticket.Origin = origin.Result;
-            ticket.Destiny = destiny.Result;
-            ticket.ClientTicket = client.Result;
+
+            ticket.Origin = origin;
+            ticket.Destiny = destiny;
+            ticket.ClientTicket = client;
 
 
             return await _ticketService.PostTicket(ticket);
         }
 
         [HttpDelete("{id}", Name = "DeleteTicket")]
-        public async Task<Ticket> DeleteTicket(string id)
+        public async Task<Ticket> DeleteTicket(int id)
         {
             return await _ticketService.DeleteTicket(id);
         }

@@ -28,7 +28,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpGet("{id}", Name = "GetClientById")]
-        public async Task<Client> GetClientById(string id)
+        public async Task<Client> GetClientById(int id)
         {
             return await _clientService.GetClientById(id);
         }
@@ -52,7 +52,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpDelete("{id}", Name = "DeleteClient")]
-        public async Task<Client> DeleteClient(string id)
+        public async Task<Client> DeleteClient(int id)
         {
             return await _clientService.DeleteClient(id);
         }

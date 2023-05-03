@@ -28,7 +28,7 @@ namespace Services
             }
         }
 
-        public async Task<Ticket> GetTicketById(string id)
+        public async Task<Ticket> GetTicketById(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Services
             }
         }
 
-        public async Task<Ticket> DeleteTicket(string id)
+        public async Task<Ticket> DeleteTicket(int id)
         {
             try
             {

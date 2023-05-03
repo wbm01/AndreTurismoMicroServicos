@@ -28,7 +28,7 @@ namespace Services
             }
         }
 
-        public async Task<Client> GetClientById(string id)
+        public async Task<Client> GetClientById(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Services
             }
         }
 
-        public async Task<Client> DeleteClient(string id)
+        public async Task<Client> DeleteClient(int id)
         {
             try
             {

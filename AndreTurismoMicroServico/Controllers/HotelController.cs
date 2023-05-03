@@ -29,7 +29,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpGet("{id}", Name = "GetHotelById")]
-        public async Task<Hotel> GetHotelById(string id)
+        public async Task<Hotel> GetHotelById(int id)
         {
             return await _hotelService.GetHotelById(id);
         }
@@ -54,7 +54,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpDelete("{id}", Name = "DeleteHotel")]
-        public async Task<Hotel> DeleteHotel(string id)
+        public async Task<Hotel> DeleteHotel(int id)
         {
             return await _hotelService.DeleteHotel(id);
         }

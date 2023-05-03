@@ -28,7 +28,7 @@ namespace Services
             }
         }
 
-        public async Task<Hotel> GetHotelById(string id)
+        public async Task<Hotel> GetHotelById(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Services
             }
         }
 
-        public async Task<Hotel> DeleteHotel(string id)
+        public async Task<Hotel> DeleteHotel(int id)
         {
             try
             {

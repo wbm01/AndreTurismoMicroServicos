@@ -29,7 +29,7 @@ namespace Services
             }
         }
 
-        public async Task<Address> GetAddressById(string id)
+        public async Task<Address> GetAddressById(int id)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Services
             }
         }
 
-        public async Task<Address> DeleteAddress(string id)
+        public async Task<Address> DeleteAddress(int id)
         {
             try
             {

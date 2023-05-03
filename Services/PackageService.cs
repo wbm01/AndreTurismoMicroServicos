@@ -28,7 +28,7 @@ namespace Services
             }
         }
 
-        public async Task<Package> GetPackageById(string id)
+        public async Task<Package> GetPackageById(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Services
             }
         }
 
-        public async Task<Package> DeletePackage(string id)
+        public async Task<Package> DeletePackage(int id)
         {
             try
             {

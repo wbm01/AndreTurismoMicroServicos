@@ -21,9 +21,9 @@ namespace UnitTestAddress
             // Insert data into the database using one instance of the context
             using (var context = new AndreTurismoMicroServicoAddressServiceContext(options))
             {
-                context.Address.Add(new Address { Id_Address = 1, Street = "Street 1", Cep = "123456789", Id_City_Address = new City() { Id_City = 1, Description = "City1" } });
-                context.Address.Add(new Address { Id_Address = 2, Street = "Street 2", Cep = "987654321", Id_City_Address = new City() { Id_City = 2, Description = "City2" } });
-                context.Address.Add(new Address { Id_Address = 3, Street = "Street 3", Cep = "159647841", Id_City_Address = new City() { Id_City = 3, Description = "City3" } });
+                context.Address.Add(new Address { Id_Address = 1, Street = "Street 1", Number = 321, Neighborhood = "São José", Cep = "11111", Complement = "Casa", Id_City_Address = new City() { Id_City = 1, Description = "City1", DtRegister_City = DateTime.Now }, DtRegister_Address = DateTime.Now,  });
+                context.Address.Add(new Address { Id_Address = 2, Street = "Street 2", Number = 111, Neighborhood = "Centro", Cep = "22222", Complement = "Casa", Id_City_Address = new City() { Id_City = 2, Description = "City2", DtRegister_City = DateTime.Now }, DtRegister_Address = DateTime.Now,  });
+                context.Address.Add(new Address { Id_Address = 3, Street = "Street 3", Number = 222, Neighborhood = "São José", Cep = "33333", Complement = "Casa", Id_City_Address = new City() { Id_City = 3, Description = "City3", DtRegister_City = DateTime.Now }, DtRegister_Address = DateTime.Now,  });
                 context.SaveChanges();
             }
         }
@@ -59,16 +59,21 @@ namespace UnitTestAddress
         }
 
         [Fact]
-        public void Create()
+        public void PostAddress()
         {
             InitializeDataBase();
 
-            Address address = new Address()
+            Address address = new Address
             {
-                Id_Address = 4,
-                Street = "Rua 10",
-                Cep = "14804300",
-                Id_City_Address = new() { Id_City = 10, Description = "City 10" }
+                Id_Address = 1,
+                Street = "Rua José Santos",
+                Number = 321,
+                Neighborhood = "Centro",
+                Cep = "1111",
+                Complement = "Casa 1",
+                Id_City_Address = new City()
+                { Id_City = 1, Description = "São Paulo", DtRegister_City = DateTime.Now },
+                DtRegister_Address = DateTime.Now
             };
 
             // Use a clean instance of the context to run the test
@@ -76,20 +81,26 @@ namespace UnitTestAddress
             {
                 AddressesController clientController = new AddressesController(context, new PostOfficeService());
                 Address ad = clientController.PostAddress(address).Result.Value;
-                Assert.Equal("Avenida Alberto Benassi", ad.Street);
+                Assert.Equal("Rua José Santos", ad.Street);
             }
         }
 
         [Fact]
-        public void Update()
+        public void PutAddress()
         {
             InitializeDataBase();
 
-            Address address = new Address()
+            Address address = new Address
             {
                 Id_Address = 3,
-                Street = "Rua 10 Alterada",
-                Id_City_Address = new() { Id_City = 10, Description = "City 10 alterada" }
+                Street = "Rua José",
+                Number = 444,
+                Neighborhood = "Selmi Dei",
+                Cep = "2222",
+                Complement = "Casa 2",
+                DtRegister_Address = DateTime.Now,
+                Id_City_Address = new City()
+                { Id_City = 3, Description = "São Pedro", DtRegister_City = DateTime.Now }
             };
 
             // Use a clean instance of the context to run the test
@@ -97,7 +108,7 @@ namespace UnitTestAddress
             {
                 AddressesController clientController = new AddressesController(context, null);
                 Address ad = clientController.PutAddress(3, address).Result.Value;
-                Assert.Equal("Rua 10 Alterada", ad.Street);
+                Assert.Equal("Rua José", ad.Street);
             }
         }
 

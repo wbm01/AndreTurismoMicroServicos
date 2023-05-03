@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AndreTurismoMicroServico.PackageService.Data;
 using Models;
+using System.Net.Sockets;
 
 namespace AndreTurismoMicroServico.PackageService.Controllers
 {
@@ -22,24 +23,48 @@ namespace AndreTurismoMicroServico.PackageService.Controllers
         }
 
         // GET: api/Packages
-        [HttpGet]
+        [HttpGet (Name = "GetPackage")]
         public async Task<ActionResult<IEnumerable<Package>>> GetPackage()
         {
           if (_context.Package == null)
           {
               return NotFound();
           }
+
+            await _context.Package.Include(a => a.HotelPackage).ToListAsync();
+            await _context.Package.Include(a => a.HotelPackage.Id_Address_Hotel).ToListAsync();
+            await _context.Package.Include(a => a.HotelPackage.Id_Address_Hotel.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Origin).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Origin.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Destiny).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Destiny.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket.AddressClient).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket.AddressClient.Id_City_Address).ToListAsync();
+
             return await _context.Package.ToListAsync();
         }
 
         // GET: api/Packages/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetPackageById")]
         public async Task<ActionResult<Package>> GetPackage(int id)
         {
           if (_context.Package == null)
           {
               return NotFound();
           }
+
+            await _context.Package.Include(a => a.HotelPackage).ToListAsync();
+            await _context.Package.Include(a => a.HotelPackage.Id_Address_Hotel).ToListAsync();
+            await _context.Package.Include(a => a.HotelPackage.Id_Address_Hotel.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Origin).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Origin.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Destiny).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.Destiny.Id_City_Address).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket.AddressClient).ToListAsync();
+            await _context.Package.Include(a => a.TicketPackage.ClientTicket.AddressClient.Id_City_Address).ToListAsync();
+
             var package = await _context.Package.FindAsync(id);
 
             if (package == null)
@@ -52,7 +77,7 @@ namespace AndreTurismoMicroServico.PackageService.Controllers
 
         // PUT: api/Packages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id}" , Name = "UpdatePackage")]
         public async Task<IActionResult> PutPackage(int id, Package package)
         {
             if (id != package.Id)
@@ -83,13 +108,15 @@ namespace AndreTurismoMicroServico.PackageService.Controllers
 
         // POST: api/Packages
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost (Name = "PostPackage")]
         public async Task<ActionResult<Package>> PostPackage(Package package)
         {
           if (_context.Package == null)
           {
               return Problem("Entity set 'AndreTurismoMicroServicoPackageServiceContext.Package'  is null.");
           }
+            _context.Entry(package).State = EntityState.Modified;
+
             _context.Package.Add(package);
             await _context.SaveChangesAsync();
 
@@ -97,7 +124,7 @@ namespace AndreTurismoMicroServico.PackageService.Controllers
         }
 
         // DELETE: api/Packages/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "DeletePackage")]
         public async Task<IActionResult> DeletePackage(int id)
         {
             if (_context.Package == null)

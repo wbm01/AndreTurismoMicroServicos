@@ -15,10 +15,6 @@ namespace Models
         public Ticket TicketPackage { get; set; }
         public DateTime DtRegisterPackage { get; set; }
         public double ValuePackage { get; set; }
-
-        public Client ClientPackage
-        {
-            get; set;
-        }
+        public Client ClientPackage { get; set; }
     }
 }

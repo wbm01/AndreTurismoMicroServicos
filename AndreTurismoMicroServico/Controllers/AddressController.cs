@@ -34,7 +34,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpGet("{id}", Name = "GetAddressesById")]
-        public async Task<Address> GetAddressById(string id)
+        public async Task<Address> GetAddressById(int id)
         {
             return await _addressService.GetAddressById(id);
         }
@@ -47,7 +47,7 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpDelete("{id}", Name = "DeleteAddress")]
-        public async Task<Address> DeleteAddress(string id)
+        public async Task<Address> DeleteAddress(int id)
         {
             return await _addressService.DeleteAddress(id);
         }

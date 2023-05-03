@@ -23,6 +23,8 @@ namespace UnitTestCity
             {
                 db.City.Add(new City { Id_City = 1, Description = "Ibitinga", DtRegister_City = DateTime.Now });
                 db.City.Add(new City { Id_City = 2, Description = "Araraquara", DtRegister_City = DateTime.Now });
+
+                db.SaveChanges();
             }
         }
 
@@ -35,9 +37,9 @@ namespace UnitTestCity
             {
                 CitiesController controller = new CitiesController(db);
 
-                IEnumerable<City> cities = controller.GetCity().Result.Value;
+                IEnumerable<City> city = controller.GetCity().Result.Value;
 
-                Assert.Equal(1, cities.Count());
+                Assert.Equal(1, city.Count());
             }
         }
 
@@ -48,7 +50,7 @@ namespace UnitTestCity
 
             using (var db = new AndreTurismoMicroServicoCityServiceContext(options))
             {
-                int id = 2;
+                int id = 1;
 
                 CitiesController controller = new CitiesController(db);
 

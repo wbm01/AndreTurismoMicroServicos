@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AndreTurismoMicroServico.TicketService.Data;
 using Models;
+using System.Net.Sockets;
 
 namespace AndreTurismoMicroServico.TicketService.Controllers
 {
@@ -22,7 +23,7 @@ namespace AndreTurismoMicroServico.TicketService.Controllers
         }
 
         // GET: api/Tickets
-        [HttpGet]
+        [HttpGet (Name = "GetTicket")]
         public async Task<ActionResult<IEnumerable<Ticket>>> GetTicket()
         {
           if (_context.Ticket == null)
@@ -31,30 +32,33 @@ namespace AndreTurismoMicroServico.TicketService.Controllers
           }
 
             await _context.Ticket.Include(a => a.Origin).ToListAsync();
-
+            await _context.Ticket.Include(a => a.Origin.Id_City_Address).ToListAsync();
             await _context.Ticket.Include(a => a.Destiny).ToListAsync();
-
+            await _context.Ticket.Include(a => a.Destiny.Id_City_Address).ToListAsync();
             await _context.Ticket.Include(a => a.ClientTicket).ToListAsync();
+            await _context.Ticket.Include(a => a.ClientTicket.AddressClient.Id_City_Address).ToListAsync();
+
+
 
             return await _context.Ticket.ToListAsync();
         }
 
         // GET: api/Tickets/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetTicketById")]
         public async Task<ActionResult<Ticket>> GetTicket(int id)
         {
-          if (_context.Ticket == null)
-          {
-              return NotFound();
-          }
+            if (_context.Ticket == null)
+            {
+                  return NotFound();
+            }
 
-            await _context.Ticket.Include(a => a.Origin).ToListAsync();
-
-            await _context.Ticket.Include(a => a.Destiny).ToListAsync();
-
-            await _context.Ticket.Include(a => a.ClientTicket).ToListAsync();
-
-            var ticket = await _context.Ticket.FindAsync(id);
+            var ticket = _context.Ticket.Include(a => a.Origin)
+                                        .Include(a => a.Destiny)
+                                        .Include(a => a.Origin.Id_City_Address)
+                                        .Include(a => a.Destiny.Id_City_Address)
+                                        .Include(a => a.ClientTicket)
+                                        .Include(a => a.ClientTicket.AddressClient.Id_City_Address)
+                                        .Where(a => a.Id == id).FirstOrDefault();
 
             if (ticket == null)
             {
@@ -66,7 +70,7 @@ namespace AndreTurismoMicroServico.TicketService.Controllers
 
         // PUT: api/Tickets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = "PutTicket")]
         public async Task<IActionResult> PutTicket(int id, Ticket ticket)
         {
             if (id != ticket.Id)
@@ -97,21 +101,29 @@ namespace AndreTurismoMicroServico.TicketService.Controllers
 
         // POST: api/Tickets
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost( Name = "PostTicket")]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
           if (_context.Ticket == null)
           {
               return Problem("Entity set 'AndreTurismoMicroServicoTicketServiceContext.Ticket'  is null.");
           }
+            /*var origin = ticket.Origin.Id_Address;
+            var destiny = ticket.Destiny.Id_Address;
+            var client = ticket.ClientTicket.Id;*/
+
+
+            _context.Entry(ticket).State = EntityState.Modified;
+
             _context.Ticket.Add(ticket);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
+            return ticket;
         }
 
         // DELETE: api/Tickets/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "DeleteTicket")]
         public async Task<IActionResult> DeleteTicket(int id)
         {
             if (_context.Ticket == null)

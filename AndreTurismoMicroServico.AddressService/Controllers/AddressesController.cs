@@ -110,7 +110,7 @@ namespace AndreTurismoMicroServico.AddressService.Controllers
             _context.Address.Add(ad);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAddress", new { id = address.Id_Address }, ad);
+            return  ad;
         }
         private Address GetPostOffice(Address address)
         {
