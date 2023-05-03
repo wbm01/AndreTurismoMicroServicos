@@ -73,11 +73,11 @@ namespace Services
             }
         }
 
-        public async Task<Ticket> UpdateTicket(Ticket ticket)
+        public async Task<Ticket> UpdateTicket(int id, Ticket ticket)
         {
             try
             {
-                HttpResponseMessage resposta = await ticketClient.PutAsJsonAsync("https://localhost:7268/api/Tickets", ticket);
+                HttpResponseMessage resposta = await ticketClient.PutAsJsonAsync("https://localhost:7268/api/Tickets/" + id, ticket);
                 resposta.EnsureSuccessStatusCode();
                 string ticketResposta = await resposta.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Ticket>(ticketResposta);

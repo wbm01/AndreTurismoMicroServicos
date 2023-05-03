@@ -52,9 +52,9 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdatePackage")]
-        public async Task<Package> UpdatePackage(Package package)
+        public async Task<Package> UpdatePackage(int id, Package package)
         {
-            return await _packageService.UpdatePackage(package);
+            return await _packageService.UpdatePackage(id, package);
         }
     }
 }

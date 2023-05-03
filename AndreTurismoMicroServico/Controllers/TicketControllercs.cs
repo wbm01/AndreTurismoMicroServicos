@@ -60,9 +60,9 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateTicket")]
-        public async Task<Ticket> UpdateTicket(Ticket ticket)
+        public async Task<Ticket> UpdateTicket(int id, Ticket ticket)
         {
-            return await _ticketService.UpdateTicket(ticket);
+            return await _ticketService.UpdateTicket(id, ticket);
         }
     }
 }

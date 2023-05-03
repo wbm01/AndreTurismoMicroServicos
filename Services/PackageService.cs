@@ -73,11 +73,11 @@ namespace Services
             }
         }
 
-        public async Task<Package> UpdatePackage(Package package)
+        public async Task<Package> UpdatePackage(int id, Package package)
         {
             try
             {
-                HttpResponseMessage resposta = await packageClient.PutAsJsonAsync("https://localhost:7004/api/Packages", package);
+                HttpResponseMessage resposta = await packageClient.PutAsJsonAsync("https://localhost:7004/api/Packages/" + id, package);
                 resposta.EnsureSuccessStatusCode();
                 string packageResposta = await resposta.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Package>(packageResposta);

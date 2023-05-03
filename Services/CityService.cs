@@ -72,9 +72,9 @@ namespace Services
             }
         }
 
-        public async Task<City>UpdateCity(City city)
+        public async Task<City>UpdateCity(int id, City city)
         {
-            HttpResponseMessage resposta = await cityClient.PutAsJsonAsync("https://localhost:7229/api/Cities", city);
+            HttpResponseMessage resposta = await cityClient.PutAsJsonAsync("https://localhost:7229/api/Cities/" + id, city);
             resposta.EnsureSuccessStatusCode();
             string cityResposta = await resposta.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<City>(cityResposta);

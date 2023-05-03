@@ -120,7 +120,7 @@ namespace AndreTurismoMicroServico.PackageService.Controllers
             _context.Package.Add(package);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPackage", new { id = package.Id }, package);
+            return package;
         }
 
         // DELETE: api/Packages/5

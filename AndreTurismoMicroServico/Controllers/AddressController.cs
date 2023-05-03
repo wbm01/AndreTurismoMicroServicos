@@ -53,9 +53,9 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateAddress")]
-        public async Task<Address> UpdateAddress(Address address)
+        public async Task<Address> UpdateAddress(int id, Address address)
         {
-            return await _addressService.UpdateAddress(address);
+            return await _addressService.UpdateAddress(id, address);
         }
     }
 }

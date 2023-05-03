@@ -58,9 +58,9 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateClient")]
-        public async Task<Client> UpdateClient(Client client)
+        public async Task<Client> UpdateClient(int id, Client client)
         {
-            return await _clientService.UpdateClient(client);
+            return await _clientService.UpdateClient(id, client);
         }
     }
 }

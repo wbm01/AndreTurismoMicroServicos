@@ -41,9 +41,9 @@ namespace AndreTurismoMicroServico.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateCity")]
-        public async Task<City> UpdateCity(City city)
+        public async Task<City> UpdateCity(int id, City city)
         {
-            return await _cityService.UpdateCity(city);
+            return await _cityService.UpdateCity(id, city);
         }
     }
 }

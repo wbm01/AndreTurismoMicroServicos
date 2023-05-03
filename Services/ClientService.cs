@@ -73,11 +73,11 @@ namespace Services
             }
         }
 
-        public async Task<Client> UpdateClient(Client client)
+        public async Task<Client> UpdateClient(int id, Client client)
         {
             try
             {
-                HttpResponseMessage resposta = await customerClient.PutAsJsonAsync("https://localhost:7104/api/Clients", client);
+                HttpResponseMessage resposta = await customerClient.PutAsJsonAsync("https://localhost:7104/api/Clients/" + id, client);
                 resposta.EnsureSuccessStatusCode();
                 string clientResposta = await resposta.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<Client>(clientResposta);
