@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AndreTurismoMicroServico.CityService.Data;
 using Models;
+using Services.Producer;
 
 namespace AndreTurismoMicroServico.CityService.Controllers
 {
@@ -15,10 +16,12 @@ namespace AndreTurismoMicroServico.CityService.Controllers
     public class CitiesController : ControllerBase
     {
         private readonly AndreTurismoMicroServicoCityServiceContext _context;
+        private readonly ProducerCityService _producerService;
 
-        public CitiesController(AndreTurismoMicroServicoCityServiceContext context)
+        public CitiesController(AndreTurismoMicroServicoCityServiceContext context, ProducerCityService producerService)
         {
             _context = context;
+            _producerService = producerService;
         }
 
         // GET: api/Cities
@@ -90,10 +93,11 @@ namespace AndreTurismoMicroServico.CityService.Controllers
           {
               return Problem("Entity set 'AndreTurismoMicroServicoCityServiceContext.City'  is null.");
           }
-            _context.City.Add(city);
-            await _context.SaveChangesAsync();
+            //  _context.City.Add(city);
+            //  await _context.SaveChangesAsync();
+            _producerService.PostMQMessage(city);
 
-            return CreatedAtAction("GetCity", new { id = city.Id_City }, city);
+            return city;
         }
 
         // DELETE: api/Cities/5

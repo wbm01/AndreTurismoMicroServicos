@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
+using Services.Producer;
 
 namespace AndreTurismoMicroServico.Controllers
 {
@@ -10,6 +11,7 @@ namespace AndreTurismoMicroServico.Controllers
     public class CityController : ControllerBase
     {
         private readonly CityService _cityService;
+        private readonly ProducerCityService _producerService;
         public CityController(CityService cityService)
         {
             _cityService = cityService;
@@ -31,6 +33,7 @@ namespace AndreTurismoMicroServico.Controllers
         [HttpPost(Name = "PostCity")]
         public async Task<City> PostCity(City city)
         {
+
             return await _cityService.PostCity(city);
         }
 

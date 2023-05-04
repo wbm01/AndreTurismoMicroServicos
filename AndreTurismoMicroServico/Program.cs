@@ -1,4 +1,5 @@
 using Services;
+using Services.Producer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddSingleton<AddressService>();
 builder.Services.AddSingleton<CityService>();
 builder.Services.AddSingleton<PostOfficeService>();
 builder.Services.AddSingleton<HotelService>();
+
 
 var app = builder.Build();
 
